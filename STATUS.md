@@ -1,12 +1,12 @@
 # Status | 마지막: 2026-05-04
 ## 현재 작업
-일일 수집 후 정적 대시보드 자동 push 설정 완료
+Vercel JSON 라우팅 오류 수정 완료
 ## 최근 변경 (최근 5개만)
+- 05-04: /data/* 라우트를 public/data 정적 파일로 직접 연결
 - 05-04: run_daily_pipeline.ps1에 summary.json 변경 시 git commit/push 자동화 추가
 - 05-04: 로컬 DB 후보를 public/data/summary.json으로 export하는 스크립트 추가
 - 05-04: Vercel 정적 페이지에서 오늘/7일/30일 후보 표 렌더링
 - 05-04: Vercel Python Lambda 빌드 대신 public 정적 배포로 전환
-- 05-04: vercel.json에서 install/build 비활성화, outputDirectory public 지정
 ## TODO
 - [ ] Reddit OAuth 키 확보 시 Reddit 커뮤니티 질문/후기 신호 추가
 - [ ] Stack Exchange Q&A형 니치 신호 추가 검토
@@ -24,6 +24,7 @@
 - 자동 수집: Windows 작업 스케줄러 TrendKeywordCafeDaily, 매일 06:30, LastTaskResult 0 확인
 - Vercel: Streamlit/Python deps를 배포하지 않고 public 정적 상태 페이지만 제공
 - 정적 대시보드 데이터: public/data/summary.json, 로컬 export 후 Git push 시 Vercel 반영
+- Vercel 라우팅: /data/*는 JSON 정적 파일, 나머지는 index.html
 - 자동 게시: summary.json 변경 시 작업 스케줄러가 커밋/푸시하고 Vercel 자동 재배포
 - 검증: 파이프라인, ruff/mypy/compileall, Streamlit AppTest, localhost 200 확인
 ## 주의

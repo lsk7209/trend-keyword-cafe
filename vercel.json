@@ -8,6 +8,10 @@
   ],
   "routes": [
     {
+      "src": "/data/(.*)",
+      "dest": "/public/data/$1"
+    },
+    {
       "src": "/health",
       "dest": "/public/health"
     },
