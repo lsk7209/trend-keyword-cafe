@@ -1,0 +1,10 @@
+feedparser>=6.0.11
+keybert>=0.8.5
+kiwipiepy>=0.17.0
+python-dotenv>=1.0.1
+pyyaml>=6.0.1
+requests>=2.31.0
+sentence-transformers>=2.7.0
+sqlmodel>=0.0.16
+streamlit>=1.36.0
+trafilatura>=1.12.0

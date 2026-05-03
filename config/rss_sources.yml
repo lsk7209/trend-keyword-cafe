@@ -1,0 +1,29 @@
+# RSS 출처 정의. 도메인을 바꾸려면 이 파일만 수정합니다.
+sources:
+  - name: "yna_top"
+    url: "https://www.yna.co.kr/rss/news.xml"
+    description: "연합뉴스 주요뉴스"
+
+  - name: "yna_society"
+    url: "https://www.yna.co.kr/rss/society.xml"
+    description: "연합뉴스 사회"
+
+  - name: "hani_main"
+    url: "https://www.hani.co.kr/rss/"
+    description: "한겨레 종합"
+
+  - name: "zdnet_kr"
+    url: "https://feeds.feedburner.com/zdkorea"
+    description: "ZDNet Korea"
+
+  - name: "etnews_it"
+    url: "https://rss.etnews.com/Section902.xml"
+    description: "전자신문 IT"
+
+  - name: "bloter"
+    url: "https://www.bloter.net/rss"
+    description: "블로터"
+
+  - name: "mk_top"
+    url: "https://www.mk.co.kr/rss/30000001/"
+    description: "매일경제 주요뉴스"
