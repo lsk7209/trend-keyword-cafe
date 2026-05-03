@@ -18,6 +18,10 @@ try {
     if ($LASTEXITCODE -ne 0) {
         throw "pipeline exited with code $LASTEXITCODE"
     }
+    & $PythonPath "scripts\export_static_dashboard.py" *> $LogPath
+    if ($LASTEXITCODE -ne 0) {
+        throw "export exited with code $LASTEXITCODE"
+    }
     $finishedAt = Get-Date -Format "yyyy-MM-dd HH:mm:ss"
     Add-Content -Path $LogPath -Value "[$finishedAt] pipeline success"
 } catch {
