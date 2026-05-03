@@ -1,5 +1,6 @@
 import html
 import json
+from collections.abc import Mapping, Sequence
 from datetime import date, datetime, timedelta
 from typing import Any
 
@@ -7,7 +8,6 @@ import streamlit as st
 from sqlmodel import Session, col, select
 
 from src.analysis.community_niches import (
-    AccumulatedNiche,
     CommunityNiche,
     get_accumulated_community_niches,
     get_community_niches,
@@ -341,7 +341,7 @@ def build_niche_rows(niches: list[CommunityNiche]) -> list[dict[str, Any]]:
     return rows
 
 
-def build_accumulated_rows(niches: list[AccumulatedNiche]) -> list[dict[str, Any]]:
+def build_accumulated_rows(niches: Sequence[Mapping[str, Any]]) -> list[dict[str, Any]]:
     rows: list[dict[str, Any]] = []
     for index, niche in enumerate(niches, 1):
         rows.append(
