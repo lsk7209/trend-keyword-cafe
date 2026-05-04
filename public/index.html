@@ -109,6 +109,24 @@
       font-size: 13px;
       z-index: 1;
     }
+    th button {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      border: 0;
+      padding: 0;
+      color: inherit;
+      background: transparent;
+      font: inherit;
+      cursor: pointer;
+    }
+    th button:hover {
+      color: var(--accent);
+    }
+    .sort-mark {
+      color: var(--accent);
+      font-size: 11px;
+    }
     td.reason {
       max-width: 360px;
       white-space: normal;
@@ -189,6 +207,7 @@
     const numberFormat = new Intl.NumberFormat("ko-KR");
     let dashboardData = null;
     let currentTab = "today";
+    let currentSort = { key: "practical_score", direction: "desc" };
 
     const todayColumns = [
       ["niche", "세부 주제"],
@@ -261,14 +280,53 @@
     }
 
     function renderTable() {
-      const rows = dashboardData[currentTab] || [];
       const columns = currentTab === "today" ? todayColumns : accumulatedColumns;
+      const rows = sortRows(dashboardData[currentTab] || []);
       document.querySelector("#table-head").innerHTML = `
-        <tr>${columns.map(([, label]) => `<th>${label}</th>`).join("")}</tr>
+        <tr>${columns.map(([key, label]) => renderHeaderCell(key, label)).join("")}</tr>
       `;
       document.querySelector("#table-body").innerHTML = rows.map((row) => `
         <tr>${columns.map(([key]) => renderCell(key, row[key])).join("")}</tr>
       `).join("");
+      bindSortButtons();
+    }
+
+    function renderHeaderCell(key, label) {
+      const mark = currentSort.key === key
+        ? `<span class="sort-mark">${currentSort.direction === "asc" ? "▲" : "▼"}</span>`
+        : "";
+      return `<th><button type="button" data-sort="${key}">${label}${mark}</button></th>`;
+    }
+
+    function bindSortButtons() {
+      document.querySelectorAll("[data-sort]").forEach((button) => {
+        button.addEventListener("click", () => {
+          const key = button.dataset.sort;
+          const isSameKey = currentSort.key === key;
+          currentSort = {
+            key,
+            direction: isSameKey && currentSort.direction === "desc" ? "asc" : "desc"
+          };
+          renderTable();
+        });
+      });
+    }
+
+    function sortRows(rows) {
+      return [...rows].sort((left, right) => {
+        const compared = compareValues(left[currentSort.key], right[currentSort.key]);
+        return currentSort.direction === "asc" ? compared : -compared;
+      });
+    }
+
+    function compareValues(left, right) {
+      if (typeof left === "number" && typeof right === "number") {
+        return left - right;
+      }
+      return String(left ?? "").localeCompare(String(right ?? ""), "ko-KR", {
+        numeric: true,
+        sensitivity: "base"
+      });
     }
 
     function renderCell(key, value) {
@@ -315,9 +373,15 @@
         });
         button.classList.add("active");
         currentTab = button.dataset.tab;
+        currentSort = getDefaultSort(currentTab);
         renderTable();
       });
     });
+
+    function getDefaultSort(tab) {
+      if (tab === "today") return { key: "practical_score", direction: "desc" };
+      return { key: "cumulative_score", direction: "desc" };
+    }
 
     init();
   </script>
