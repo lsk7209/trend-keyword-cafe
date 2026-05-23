@@ -1,9 +1,9 @@
 {
-  "date": "2026-05-23",
-  "generated_at": "2026-05-23",
+  "date": "2026-05-24",
+  "generated_at": "2026-05-24",
   "metrics": {
-    "total_items_collected": 253,
-    "total_keywords_extracted": 587,
+    "total_items_collected": 223,
+    "total_keywords_extracted": 544,
     "new_keywords_count": 10,
     "rising_keywords_count": 10,
     "pipeline_status": "partial",
@@ -67,9 +67,9 @@
     {
       "source": "rss_articles",
       "status": "success",
-      "items_collected": 173,
-      "request_count": 183,
-      "success_count": 173,
+      "items_collected": 143,
+      "request_count": 153,
+      "success_count": 143,
       "failure_count": 0,
       "cache_hits": 0
     },
@@ -1686,7 +1686,7 @@
     }
   ],
   "windows": {
-    "weekly_start": "2026-05-17",
-    "monthly_start": "2026-04-24"
+    "weekly_start": "2026-05-18",
+    "monthly_start": "2026-04-25"
   }
 }
