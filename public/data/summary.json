@@ -1,9 +1,9 @@
 {
-  "date": "2026-06-24",
-  "generated_at": "2026-06-24",
+  "date": "2026-06-25",
+  "generated_at": "2026-06-25",
   "metrics": {
     "total_items_collected": 260,
-    "total_keywords_extracted": 625,
+    "total_keywords_extracted": 610,
     "new_keywords_count": 10,
     "rising_keywords_count": 10,
     "pipeline_status": "partial",
@@ -87,7 +87,7 @@
   "weekly": [],
   "monthly": [],
   "windows": {
-    "weekly_start": "2026-06-18",
-    "monthly_start": "2026-05-26"
+    "weekly_start": "2026-06-19",
+    "monthly_start": "2026-05-27"
   }
 }
