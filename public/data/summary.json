@@ -1,9 +1,9 @@
 {
-  "date": "2026-07-09",
-  "generated_at": "2026-07-09",
+  "date": "2026-07-10",
+  "generated_at": "2026-07-10",
   "metrics": {
     "total_items_collected": 260,
-    "total_keywords_extracted": 583,
+    "total_keywords_extracted": 620,
     "new_keywords_count": 10,
     "rising_keywords_count": 10,
     "pipeline_status": "partial",
@@ -49,9 +49,9 @@
     {
       "source": "naver_search_documents",
       "status": "success",
-      "items_collected": 120,
-      "request_count": 120,
-      "success_count": 120,
+      "items_collected": 128,
+      "request_count": 128,
+      "success_count": 128,
       "failure_count": 0,
       "cache_hits": 0
     },
@@ -87,7 +87,7 @@
   "weekly": [],
   "monthly": [],
   "windows": {
-    "weekly_start": "2026-07-03",
-    "monthly_start": "2026-06-10"
+    "weekly_start": "2026-07-04",
+    "monthly_start": "2026-06-11"
   }
 }
